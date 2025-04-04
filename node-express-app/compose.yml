@@ -1,0 +1,22 @@
+services:
+  node-app:
+    build:
+      context: '../node-app/'
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    networks:
+      - my-network
+
+  node-express-app:
+    build:
+      context: '/'
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8080"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: "bridge"
